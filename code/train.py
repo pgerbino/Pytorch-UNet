@@ -4,6 +4,7 @@ import os  # Library for interacting with the operating system
 import random  # Library for generating random numbers
 import sys  # Library for interacting with the system
 import torch  # Library for deep learning
+print(f'Torch version is {torch.__version__}')
 import torch.nn as nn  # Module for creating neural networks
 import torch.nn.functional as F  # Module for functional operations in PyTorch
 import torchvision.transforms as transforms  # Module for image transformations
@@ -270,7 +271,6 @@ def get_args():
 
 
 if __name__ == "__main__":
-    print(f'Torch version is {torch.__version__}')
     args = get_args()  # Get the command-line arguments
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")  # Configure the logging
