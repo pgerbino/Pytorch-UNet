@@ -16,8 +16,8 @@ pytorch_estimator = PyTorch(
     # instance_type='ml.p2.xlarge',
     instance_type='ml.m5.large',
     instance_count=1,
-    framework_version='1.8.1',
-    py_version='py3',
+    framework_version='1.13.1',
+    py_version='py39',
     # These will be picked up as arg parse
     # hyperparameters={
     #     'epochs': 10,
