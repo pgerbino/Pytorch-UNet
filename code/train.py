@@ -21,9 +21,9 @@ from utils.data_loading import BasicDataset, CarvanaDataset  # Custom modules fo
 from utils.dice_score import dice_loss  # Custom module for calculating dice loss
 
 # Define the paths to the image, mask, and checkpoint directories
-dir_img = Path("./data/imgs/")
-dir_mask = Path("./data/masks/")
-dir_checkpoint = Path("./checkpoints/")
+dir_img = Path(os.environ['SM_CHANNEL_TRAINING']) / 'imgs'
+dir_mask = Path(os.environ['SM_CHANNEL_TRAINING']) / 'masks'
+dir_checkpoint = Path(os.environ['SM_CHANNEL_TRAINING']) / 'checkpoints'
 
 
 def train_model(
@@ -155,9 +155,9 @@ def train_model(
                 pbar.update(images.shape[0])  # Update the progress bar
                 global_step += 1  # Increment the global step counter
                 epoch_loss += loss.item()  # Accumulate the loss for the epoch
-                experiment.log(
-                    {"train loss": loss.item(), "step": global_step, "epoch": epoch}
-                )  # Log the training loss
+                # experiment.log(
+                #     {"train loss": loss.item(), "step": global_step, "epoch": epoch}
+                # )  # Log the training loss
                 pbar.set_postfix(**{"loss (batch)": loss.item()})  # Update the progress bar with the current loss
 
                 # Evaluation round

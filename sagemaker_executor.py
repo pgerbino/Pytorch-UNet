@@ -3,7 +3,7 @@ from sagemaker.pytorch import PyTorch
 
 # Define the S3 bucket and prefix
 bucket = 'architectexam'
-prefix = 'imgs'
+prefix = 'pytorch'
 
 # Define the SageMaker role
 role = 'arn:aws:iam::511771194412:role/AmazonSageMaker-ExecutionRole'
